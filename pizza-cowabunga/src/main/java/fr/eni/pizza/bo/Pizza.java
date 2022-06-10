@@ -9,6 +9,7 @@ public class Pizza {
 	private String type;
 	private String libelle;
 	private double prix;
+	private String base64;
 	
 	public Integer getId() {
 		return id;
@@ -37,22 +38,30 @@ public class Pizza {
 	
 	public Pizza() {
 	}
-	public Pizza(String type, String libelle, double prix) {
+	public Pizza(String type, String libelle, double prix, String base64) {
 		super();
 		this.type = type;
 		this.libelle = libelle;
 		this.prix = prix;
+		this.base64 = base64;
 	}
-	public Pizza(int id, String type, String libelle, double prix) {
+	public Pizza(int id, String type, String libelle, double prix, String base64) {
 		super();
 		this.id = id;
 		this.type = type;
 		this.libelle = libelle;
 		this.prix = prix;
+		this.base64 = base64;
 	}
 	@Override
 	public String toString() {
 		return "Pizza [id=" + id + ", type=" + type + ", libelle=" + libelle + ", prix=" + prix + "€" + "]";
+	}
+	public String getBase64() {
+		return base64;
+	}
+	public void setBase64(String base64) {
+		this.base64 = base64;
 	}
 
 	

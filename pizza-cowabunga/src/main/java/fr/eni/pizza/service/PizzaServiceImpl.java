@@ -11,13 +11,12 @@ import fr.eni.pizza.bo.Pizza;
 public class PizzaServiceImpl implements PizzaService{
 
 	private List<Pizza> listePizzas;
-	
 
 	public PizzaServiceImpl() {
 		listePizzas = new ArrayList<>();
-		listePizzas.add(new Pizza(1, "chèvre-nutella", "Inspirée du sucré-salé de la chèvre-miel, la pizza vitrine du restaurant.", 15.99));
-		listePizzas.add(new Pizza(2, "nature", "Sortez aussi léger que lorsque vous êtes entré.", 10.99));
-		listePizzas.add(new Pizza(3, "lardon-confiture", "Alliance subtile de saveurs s'approchant dangereusement du mauvais goût.", 12.50));
+		listePizzas.add(new Pizza(1, "chèvre-nutella", "Inspirée du sucré-salé de la chèvre-miel, la pizza vitrine du restaurant.", 15.99, Base64Converter.encodeFileToBase64Binary("src/main/resources/static/img/pizza-chevre-nutella.png")));
+		listePizzas.add(new Pizza(2, "nature", "Sortez aussi léger que lorsque vous êtes entré.", 10.99, "toto"));
+		listePizzas.add(new Pizza(3, "lardon-confiture", "Alliance subtile de saveurs s'approchant dangereusement du mauvais goût.", 12.50, Base64Converter.encodeFileToBase64Binary("src/main/resources/static/img/pizza_lardon-confiture.png")));
 		
 	}
 	

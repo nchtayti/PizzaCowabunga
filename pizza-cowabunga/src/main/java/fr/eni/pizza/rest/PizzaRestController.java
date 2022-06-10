@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.eni.pizza.bo.Pizza;
 import fr.eni.pizza.service.PizzaService;
 
+
 @RestController
 @RequestMapping("/rest")
 public class PizzaRestController {
@@ -27,7 +29,7 @@ public class PizzaRestController {
 	public PizzaRestController(PizzaService PizzaService) {
 		this.PizzaService = PizzaService;
 	}
-	
+	@CrossOrigin
 	@GetMapping("/Pizzas")
 	public List<Pizza> getPizzas(){
 	
@@ -35,7 +37,7 @@ public class PizzaRestController {
 
 	}
 
-	
+	@CrossOrigin
 	@GetMapping("/Pizzas/{id}")
 	public Pizza getPizza(@PathVariable("id") int id)
 	{
@@ -52,7 +54,7 @@ public class PizzaRestController {
 //		
 //		return Pizza;
 //	}
-	
+	@CrossOrigin
 	@PostMapping("/Pizzas")
 	public ResponseEntity<Pizza> ajouterPizza(@RequestBody Pizza Pizza)
 	{
@@ -65,7 +67,7 @@ public class PizzaRestController {
 		
 		return new ResponseEntity<Pizza>(Pizza, HttpStatus.CREATED);
 	}
-
+	@CrossOrigin
 	//@RequestMapping(path = "/Pizzas", method = RequestMethod.PUT)
 	@PutMapping("/Pizzas")
 	public Pizza modifierPizza(@RequestBody Pizza Pizza)
@@ -74,7 +76,7 @@ public class PizzaRestController {
 		
 		return Pizza;
 	}
-	
+	@CrossOrigin
 	@PatchMapping("/Pizzas/Libelle/{id}")
 	@ResponseStatus(code = HttpStatus.FOUND)
 	public void modifierCouleurPizza(@PathVariable Integer id, @RequestBody Pizza Pizza)
@@ -82,7 +84,7 @@ public class PizzaRestController {
 		PizzaService.modifierLibellePizza(id, Pizza);
 				
 	}
-	
+	@CrossOrigin
 	@PatchMapping("/Pizzas/Prix/{id}")
 	@ResponseStatus(code = HttpStatus.FOUND)
 	public void modifierPrixPizza(@PathVariable Integer id, @RequestBody Pizza Pizza)
@@ -91,7 +93,7 @@ public class PizzaRestController {
 		}
 				
 	
-	
+	@CrossOrigin
 	//@RequestMapping(path = "/Pizzas/{id}", method = RequestMethod.DELETE)
 	@DeleteMapping("/Pizzas/{id}")
 	public void supprimerPizza(@PathVariable("id") Integer id)
